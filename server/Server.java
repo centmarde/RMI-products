@@ -20,6 +20,8 @@ public class Server{
 			ProductInterface stub_mobilePhone = (ProductInterface) UnicastRemoteObject.exportObject(MobilePhone, 0);
 			ProductInterface stub_charger = (ProductInterface) UnicastRemoteObject.exportObject(Charger, 0);
 			ProductInterface stub_powerBank = (ProductInterface) UnicastRemoteObject.exportObject(powerBank, 0);
+			ProductInterface stub_keyboard = (ProductInterface) UnicastRemoteObject.exportObject(keyboard, 0);
+			//NUMBER 7
 			
 
 			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9100);
@@ -45,7 +47,9 @@ public class Server{
 			registry.rebind("mobilePhone", stub_mobilePhone);
 			registry.rebind("charger", stub_charger);
 			registry.rebind("powerBank", stub_powerBank);
-			
+			registry.rebind("keyboard", stub_keyboard);
+			//NUMBER 8
+
 			
 			System.out.println("Exporting and binding of Objects has been completed...");
 		}catch(Exception e){

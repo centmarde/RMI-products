@@ -21,7 +21,8 @@ public class Client{
 			System.out.println( "The product name is: " + p2.getName() + ",  The price is: " + p2.getPrice());
 			System.out.println( "The product name is: " + p3.getName() + ",  The price is: " + p3.getPrice());
 			System.out.println( "The product name is: " + p4.getName() + ",  The price is: " + p4.getPrice());
-			
+			System.out.println( "The product name is: " + p5.getName() + ",  The price is: " + p5.getPrice());
+			//NUMBER 12
 
 
             Cart cart = new Cart();
@@ -29,7 +30,8 @@ public class Client{
 			cart.AddProducts(p2.getName());
 			//NUMBER 13
 
-			
+			cart.ViewAddedProducts();
+			//NUMBER 14
 
 		}catch(Exception e){
 			System.out.println("Client side error..." + e);
