@@ -1,6 +1,8 @@
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+
+
 public class Client{
 	public static void main(String[] args){
 		try{
@@ -15,23 +17,22 @@ public class Client{
 			ProductInterface p3 = (ProductInterface) registry.lookup("charger");
 			ProductInterface p4 = (ProductInterface) registry.lookup("powerBank");
 			ProductInterface p5 = (ProductInterface) registry.lookup("keyboard");
-			//NUMBER 7
+		
 
-			System.out.println( "The product name is: " + p1.getName() + ",  The price is: " + p1.getPrice());
-			System.out.println( "The product name is: " + p2.getName() + ",  The price is: " + p2.getPrice());
-			System.out.println( "The product name is: " + p3.getName() + ",  The price is: " + p3.getPrice());
-			System.out.println( "The product name is: " + p4.getName() + ",  The price is: " + p4.getPrice());
-			System.out.println( "The product name is: " + p5.getName() + ",  The price is: " + p5.getPrice());
-			//NUMBER 12
-
-
-            Cart cart = new Cart();
+			System.out.println( "The product name is: " + p1.getName() + ",  The price is: " + p1.getRetailPrice());
+			System.out.println( "The product name is: " + p2.getName() + ",  The price is: " + p2.getRetailPrice());
+			System.out.println( "The product name is: " + p3.getName() + ",  The price is: " + p3.getRetailPrice());
+			System.out.println( "The product name is: " + p4.getName() + ",  The price is: " + p4.getRetailPrice());
+			System.out.println( "The product name is: " + p5.getName() + ",  The price is: " + p5.getRetailPrice());
+			
+			Cart cart = new Cart();
 			cart.AddProducts(p1.getName());
 			cart.AddProducts(p2.getName());
 			//NUMBER 13
 
 			cart.ViewAddedProducts();
 			//NUMBER 14
+			
 
 		}catch(Exception e){
 			System.out.println("Client side error..." + e);

@@ -1,7 +1,8 @@
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.rmi.RemoteException;
+
+
 
 public class Server{
 	public static void main(String[] args){
@@ -10,21 +11,21 @@ public class Server{
 			System.setProperty("java.rmi.server.hostname", "127.0.0.1");
 			System.out.println("Server has been started...");
 
-			Product Laptop = new Product("Laptop","Lenovo", 1000.91);
-			Product MobilePhone = new Product("Mobile Phone","iPhone", 441.72);
-			Product Charger = new Product("Charger","Lenovo Charger", 841.55);
-			Product powerBank = new Product("PowerBank","Panasonic", 44.12);
-			Product keyboard = new Product("keyboard", "Logitech", 44.12);
+			Product Laptop = new Product(321321,"Laptop","Lenovo", 10000.00, 100.00, 10);
+			Product MobilePhone = new Product(12223,"Mobile Phone","iPhone", 441.72,22,13);
+			Product Charger = new Product(1233,"Charger","Lenovo Charger", 841.55,12.1,12);
+			Product powerBank = new Product(3232,"PowerBank","Panasonic", 44.12,120,15);
+			Product tablet = new Product(23123,"tablet", "asus", 440.12,45,6);
 
 			ProductInterface stub_laptop = (ProductInterface) UnicastRemoteObject.exportObject(Laptop, 0);
 			ProductInterface stub_mobilePhone = (ProductInterface) UnicastRemoteObject.exportObject(MobilePhone, 0);
 			ProductInterface stub_charger = (ProductInterface) UnicastRemoteObject.exportObject(Charger, 0);
 			ProductInterface stub_powerBank = (ProductInterface) UnicastRemoteObject.exportObject(powerBank, 0);
-			ProductInterface stub_keyboard = (ProductInterface) UnicastRemoteObject.exportObject(keyboard, 0);
+			ProductInterface stub_tablet = (ProductInterface) UnicastRemoteObject.exportObject(tablet, 0);
 			//NUMBER 7
 			
 
-			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9100);
+			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9200);
 
 
 			//NUMBER 5 & NUMBER 6
@@ -40,16 +41,15 @@ public class Server{
             System.out.println("Power Bank Details:");
             powerBank.viewProducts();
 
-            System.out.println("Keyboard Details:");
-            keyboard.viewProducts();
+            System.out.println("tablet Details:");
+            tablet.viewProducts();
 
 			registry.rebind("laptop", stub_laptop);
 			registry.rebind("mobilePhone", stub_mobilePhone);
 			registry.rebind("charger", stub_charger);
 			registry.rebind("powerBank", stub_powerBank);
-			registry.rebind("keyboard", stub_keyboard);
-			//NUMBER 8
-
+			registry.rebind("keyboard", stub_tablet);
+			
 			
 			System.out.println("Exporting and binding of Objects has been completed...");
 		}catch(Exception e){

@@ -1,42 +1,76 @@
 import java.rmi.RemoteException;
 
-public class Product implements ProductInterface{
-	// Attributes of product
-	private String name = "ohaha"; //NUMBER 1
-	private String description = "kangkong chips";
-	private double price = 300.00;
+public class Product implements ProductInterface {
+    // Attributes of product
+    private int productCode;
+    private String name;
+    private String description;
+    private double retailPrice;
+    private double storePrice;
+    private int quantity;
 
-	public Product() throws RemoteException {
-       //NUMBER 2
+    public Product() {
+        // Default values
+        this.productCode = 200134;
         this.name = "DefaultName";
         this.description = "DefaultDescription";
-        this.price = 0.0;
+        this.retailPrice = 0.0;
+        this.storePrice = 0.0;
+        this.quantity = 0;
     }
 
-    public Product(String newName, String newDescription, double newPrice) throws RemoteException {
+    public Product(int newProductCode, String newName, String newDescription,
+                   double newRetailPrice, double newStorePrice, int newQuantity) {
+        this.productCode = newProductCode;
         this.name = newName;
         this.description = newDescription;
-        this.price = newPrice;
+        this.retailPrice = newRetailPrice;
+        this.storePrice = newStorePrice;
+        this.quantity = newQuantity;
     }
 
-	public String getName() throws RemoteException{
-		return this.name;
-	}
-	public String getDescription() throws RemoteException{
-		return this.description;
-	}
-	public double getPrice() throws RemoteException{
-		return this.price;
-	}
-	public void changeProductName(String newName) throws RemoteException{
-		this.name = newName;
-	}
+    public int getProductCode() {
+        return this.productCode;
+    }
 
-	//NUMBER 3
-	public void viewProducts() {
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public double getStorePrice() {
+        return this.storePrice;
+    }
+
+    public double getRetailPrice() {
+        return this.retailPrice;
+    }
+   
+    public void changeProductName(String newName) {
+        this.name = newName;
+    }
+    public void ViewAddedProducts() throws RemoteException {
+        throw new UnsupportedOperationException("Unimplemented method 'ViewAddedProducts'");
+    }
+
+    
+    public void addProducts() throws RemoteException {
+        throw new UnsupportedOperationException("Unimplemented method 'addProducts'");
+    }
+
+    public void viewProducts() {
+        System.out.println("Product Code: " + this.productCode);
         System.out.println("Product Name: " + this.name);
         System.out.println("Description: " + this.description);
-        System.out.println("Price: $" + this.price);
+        System.out.println("Retail Price: " + this.retailPrice);
+        System.out.println("Store Price: " + this.storePrice);
+        System.out.println("Quantity: " + this.quantity);
         System.out.println("-----------------------");
     }
+
+    
+   
 }
