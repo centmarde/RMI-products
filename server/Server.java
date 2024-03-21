@@ -1,13 +1,16 @@
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.RemoteException;
+
 
 
 
 public class Server{
 	public static void main(String[] args){
 		try{
-
+			Cart serve = new Cart();
+			
 			System.setProperty("java.rmi.server.hostname", "127.0.0.1");
 			System.out.println("Server has been started...");
 
@@ -16,18 +19,22 @@ public class Server{
 			Product Charger = new Product(1233,"Charger","Lenovo Charger", 841.55,12.1,12);
 			Product powerBank = new Product(3232,"PowerBank","Panasonic", 44.12,120,15);
 			Product tablet = new Product(23123,"tablet", "asus", 440.12,45,6);
+		
 
 			ProductInterface stub_laptop = (ProductInterface) UnicastRemoteObject.exportObject(Laptop, 0);
 			ProductInterface stub_mobilePhone = (ProductInterface) UnicastRemoteObject.exportObject(MobilePhone, 0);
 			ProductInterface stub_charger = (ProductInterface) UnicastRemoteObject.exportObject(Charger, 0);
 			ProductInterface stub_powerBank = (ProductInterface) UnicastRemoteObject.exportObject(powerBank, 0);
 			ProductInterface stub_tablet = (ProductInterface) UnicastRemoteObject.exportObject(tablet, 0);
+		
+
 			//NUMBER 7
 			
+			CartInterface cart = (CartInterface) UnicastRemoteObject.exportObject(serve, 0);
 
-			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9200);
-
-
+			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9100);
+			registry.rebind("addingItem1", cart);
+			registry.rebind("addingItem2", cart);
 			//NUMBER 5 & NUMBER 6
 			System.out.println("Laptop Details:");
             Laptop.viewProducts();
@@ -49,6 +56,8 @@ public class Server{
 			registry.rebind("charger", stub_charger);
 			registry.rebind("powerBank", stub_powerBank);
 			registry.rebind("keyboard", stub_tablet);
+			
+
 			
 			
 			System.out.println("Exporting and binding of Objects has been completed...");

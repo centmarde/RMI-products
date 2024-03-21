@@ -11,9 +11,9 @@ public class Product implements ProductInterface {
 
     public Product() {
         // Default values
-        this.productCode = 200134;
-        this.name = "DefaultName";
-        this.description = "DefaultDescription";
+        this.productCode = 000000;
+        this.name = "N/A";
+        this.description = "N/A";
         this.retailPrice = 0.0;
         this.storePrice = 0.0;
         this.quantity = 0;
@@ -52,15 +52,7 @@ public class Product implements ProductInterface {
     public void changeProductName(String newName) {
         this.name = newName;
     }
-    public void ViewAddedProducts() throws RemoteException {
-        throw new UnsupportedOperationException("Unimplemented method 'ViewAddedProducts'");
-    }
-
-    
-    public void addProducts() throws RemoteException {
-        throw new UnsupportedOperationException("Unimplemented method 'addProducts'");
-    }
-
+ 
     public void viewProducts() {
         System.out.println("Product Code: " + this.productCode);
         System.out.println("Product Name: " + this.name);
