@@ -1,7 +1,7 @@
-import java.rmi.RemoteException;
+
 
 public class Product implements ProductInterface {
-    // Attributes of product
+    
     private int productCode;
     private String name;
     private String description;
@@ -10,7 +10,7 @@ public class Product implements ProductInterface {
     private int quantity;
 
     public Product() {
-        // Default values
+        // number 1: Define initial variables for the products
         this.productCode = 000000;
         this.name = "N/A";
         this.description = "N/A";
@@ -18,7 +18,7 @@ public class Product implements ProductInterface {
         this.storePrice = 0.0;
         this.quantity = 0;
     }
-
+    //number 2: updated product constructor
     public Product(int newProductCode, String newName, String newDescription,
                    double newRetailPrice, double newStorePrice, int newQuantity) {
         this.productCode = newProductCode;
@@ -52,7 +52,7 @@ public class Product implements ProductInterface {
     public void changeProductName(String newName) {
         this.name = newName;
     }
- 
+  //number 3 define view prodcut method
     public void viewProducts() {
         System.out.println("Product Code: " + this.productCode);
         System.out.println("Product Name: " + this.name);

@@ -29,7 +29,7 @@ public class Client {
                 System.out.println("4. Exit");
                 System.out.print("Enter your choice: ");
                 choice = scanner.nextInt();
-
+                //switch case revise this code IMPORTANT
                 switch (choice) {
                     case 1:
                         // View Products
@@ -45,14 +45,14 @@ public class Client {
                     System.out.println("Limit items 2 only");
                     System.out.print("Enter the product name to add: ");
                     String productName = scanner.next();
-                
+                                                        //number 11 direa mahitabo ang pag add sa product gkan sa user
                     switch (productName.toLowerCase()) {
                         case "laptop":
                         case "mobile phone":
                         case "charger":
                         case "powerbank":
                         case "tablet":
-                            item1.addProduct(productName);
+                            item1.addProduct(productName); //number 12 duha ra ang ma add kay mao ra akoa gebutang
                             break;
                         default:
                             System.out.println("Invalid input. Available devices: Laptop, Mobile Phone, Charger, PowerBank, Tablet.");
@@ -61,7 +61,7 @@ public class Client {
                     break;
                     case 3:
                         // View All Products in Cart
-                        System.out.println("\n"+ item1.viewAllProductsinCart());
+                        System.out.println("\n"+ item1.viewAllProductsinCart()); //number 13
                         break;
 
                     case 4:
