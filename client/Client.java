@@ -11,13 +11,13 @@ public class Client {
             Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9100);
 
             // Get the references of exported objects from the RMI Registry...
-            ProductInterface p1 = (ProductInterface) registry.lookup("laptop");
-            ProductInterface p2 = (ProductInterface) registry.lookup("mobilePhone");
-            ProductInterface p3 = (ProductInterface) registry.lookup("charger");
-            ProductInterface p4 = (ProductInterface) registry.lookup("powerBank");
-            ProductInterface p5 = (ProductInterface) registry.lookup("keyboard");
+            ProductInterface p1 = (ProductInterface) registry.lookup("Laptop");
+            ProductInterface p2 = (ProductInterface) registry.lookup("Smartphone");
+            ProductInterface p3 = (ProductInterface) registry.lookup("Tablet");
+            ProductInterface p4 = (ProductInterface) registry.lookup("Smartwatch");
+            ProductInterface p5 = (ProductInterface) registry.lookup("Headphones");
 
-            CartInterface item1 = (CartInterface) registry.lookup("addingItem1");
+            CartInterface item1 = (CartInterface) registry.lookup("cart"); // Assuming the server binds the cart with the name "cart"
 
             Scanner scanner = new Scanner(System.in);
 
@@ -41,21 +41,21 @@ public class Client {
                         break;
 
                     case 2:
-                    System.out.println("Available devices: Laptop, Mobile Phone, Charger, PowerBank, Tablet.");
+                    System.out.println("Available devices: Laptop, Smartphone, Tablet, Smartwatch, Headphones.");
                     System.out.println("Limit items 2 only");
                     System.out.print("Enter the product name to add: ");
                     String productName = scanner.next();
                                                         //number 11 direa mahitabo ang pag add sa product gkan sa user
                     switch (productName.toLowerCase()) {
                         case "laptop":
-                        case "mobile phone":
-                        case "charger":
-                        case "powerbank":
+                        case "smartphone":
                         case "tablet":
+                        case "smartwatch":
+                        case "headphones":
                             item1.addProduct(productName); //number 12 duha ra ang ma add kay mao ra akoa gebutang
                             break;
                         default:
-                            System.out.println("Invalid input. Available devices: Laptop, Mobile Phone, Charger, PowerBank, Tablet.");
+                            System.out.println("Invalid input. Available devices: Laptop, Smartphone, Tablet, Smartwatch, Headphones.");
                             break;
                     }
                     break;
