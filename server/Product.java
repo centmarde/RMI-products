@@ -1,4 +1,4 @@
-import java.rmi.RemoteException;
+
 
 public class Product implements ProductInterface {
     
@@ -8,7 +8,6 @@ public class Product implements ProductInterface {
     private double retailPrice;
     private double storePrice;
     private int quantity;
-
 
     public Product() {
         // number 1: Define initial variables for the products
@@ -28,7 +27,6 @@ public class Product implements ProductInterface {
         this.retailPrice = newRetailPrice;
         this.storePrice = newStorePrice;
         this.quantity = newQuantity;
-        
     }
 
     public int getProductCode() {
