@@ -7,65 +7,58 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args) {
         try {
-            // Locate the registry.
+
+           /*  ProductInterface p1 = (ProductInterface) registry.lookup("laptop");
+            ProductInterface p2 = (ProductInterface) registry.lookup("mobilePhone");
+            ProductInterface p3 = (ProductInterface) registry.lookup("charger");
+            ProductInterface p4 = (ProductInterface) registry.lookup("powerBank");
+            ProductInterface p5 = (ProductInterface) registry.lookup("keyboard"); */
+            
             Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9100);
 
-            // Get the references of exported objects from the RMI Registry...
-            ProductInterface p1 = (ProductInterface) registry.lookup("Laptop");
-            ProductInterface p2 = (ProductInterface) registry.lookup("Smartphone");
-            ProductInterface p3 = (ProductInterface) registry.lookup("Tablet");
-            ProductInterface p4 = (ProductInterface) registry.lookup("Smartwatch");
-            ProductInterface p5 = (ProductInterface) registry.lookup("Headphones");
-
-            CartInterface item1 = (CartInterface) registry.lookup("cart"); // Assuming the server binds the cart with the name "cart"
+          
+            CartInterface cart = (CartInterface) registry.lookup("cart");
 
             Scanner scanner = new Scanner(System.in);
 
             int choice;
             do {
                 System.out.println("\n1. View Products");
-                System.out.println("2. Add Product");
+                System.out.println("2. Add Product to Cart");
                 System.out.println("3. View All Products in Cart");  
                 System.out.println("4. Exit");
                 System.out.print("Enter your choice: ");
                 choice = scanner.nextInt();
-                //switch case revise this code IMPORTANT
+
                 switch (choice) {
                     case 1:
-                        // View Products
-                        System.out.println("\nThe product name is: " + p1.getName() + ", The price is: " + p1.getRetailPrice());
-                        System.out.println("The product name is: " + p2.getName() + ", The price is: " + p2.getRetailPrice());
-                        System.out.println("The product name is: " + p3.getName() + ", The price is: " + p3.getRetailPrice());
-                        System.out.println("The product name is: " + p4.getName() + ", The price is: " + p4.getRetailPrice());
-                        System.out.println("The product name is: " + p5.getName() + ", The price is: " + p5.getRetailPrice());
+                        
+                        System.out.println("\nAvailable Products:");
+                        String[] productNames = registry.list();
+                        for (String productName : productNames) {
+                            if (!productName.equals("cart")) {
+                                ProductInterface product = (ProductInterface) registry.lookup(productName);
+                                System.out.println("Name: " + product.getName() + ", Retail Price: " + product.getRetailPrice());
+                            }
+                        }
                         break;
 
                     case 2:
-                    System.out.println("Available devices: Laptop, Smartphone, Tablet, Smartwatch, Headphones.");
-                    System.out.println("Limit items 2 only");
-                    System.out.print("Enter the product name to add: ");
-                    String productName = scanner.next();
-                                                        //number 11 direa mahitabo ang pag add sa product gkan sa user
-                    switch (productName.toLowerCase()) {
-                        case "laptop":
-                        case "smartphone":
-                        case "tablet":
-                        case "smartwatch":
-                        case "headphones":
-                            item1.addProduct(productName); //number 12 duha ra ang ma add kay mao ra akoa gebutang
-                            break;
-                        default:
-                            System.out.println("Invalid input. Available devices: Laptop, Smartphone, Tablet, Smartwatch, Headphones.");
-                            break;
-                    }
-                    break;
+                        
+                        System.out.print("Enter the name of the product to add: ");
+                        String productNameToAdd = scanner.next();
+                        ProductInterface productToAdd = (ProductInterface) registry.lookup(productNameToAdd);
+                        cart.addProduct(productToAdd.getName());
+                        System.out.println(productToAdd.getName() + " added to cart.");
+                        break;
+
                     case 3:
-                        // View All Products in Cart
-                        System.out.println("\n"+ item1.viewAllProductsinCart()); //number 13
+                        
+                        System.out.println(cart.viewAllProductsinCart());
                         break;
 
                     case 4:
-                        // Exit
+                        
                         System.out.println("Exiting the program. Goodbye!");
                         break;
 
