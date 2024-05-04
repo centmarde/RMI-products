@@ -1,34 +1,34 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Cart implements CartInterface {
 
-    private List<String> addedProducts;
+    private String addedProduct1;
+    private String addedProduct2;
 
     public Cart() {
-        this.addedProducts = new ArrayList<>();
+        this.addedProduct1 = "none";
+        this.addedProduct2 = "none";
     }
 
-    @Override
     public void addProduct(String product) {
-        if (addedProducts.size() < 2) {
-            addedProducts.add(product);
-            System.out.println(product + " added to cart.");
+        if (addedProduct1.equals("none")) {
+            System.out.println("adding products 1.");
+            addedProduct1 = product;
+        } else if (addedProduct2.equals("none")) {
+            System.out.println("adding products 2.");
+            addedProduct2 = product;
         } else {
             System.out.println("Cart is full. Cannot add more products.");
         }
     }
 
-    @Override
     public String viewAllProductsinCart() {
-        if (addedProducts.isEmpty()) {
-            return "No products in Cart.";
-        } else {
-            StringBuilder products = new StringBuilder("\nAll Products in Cart: ");
-            for (String product : addedProducts) {
-                products.append(product).append(", ");
-            }
-            return products.substring(0, products.length() - 2); 
+        StringBuilder products = new StringBuilder("\nAll Products in Cart: ");
+        if (!addedProduct1.equals("none")) {
+            products.append(addedProduct1).append(", ");
         }
+        if (!addedProduct2.equals("none")) {
+            products.append(addedProduct2).append(", ");
+        }
+        return products.length() > 0 ? products.substring(0, products.length() - 2) : "No products in Cart.";
     }
 }

@@ -7,6 +7,12 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args) {
         try {
+
+           /*  ProductInterface p1 = (ProductInterface) registry.lookup("laptop");
+            ProductInterface p2 = (ProductInterface) registry.lookup("mobilePhone");
+            ProductInterface p3 = (ProductInterface) registry.lookup("charger");
+            ProductInterface p4 = (ProductInterface) registry.lookup("powerBank");
+            ProductInterface p5 = (ProductInterface) registry.lookup("keyboard"); */
             
             Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9100);
 

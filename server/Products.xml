@@ -1,8 +1,7 @@
 <Products>
-    <Product name="Laptop" productCode="1" description="Lenovo Laptop" retailPrice="25000.00" storePrice="20000.00" quantity="5"/>
-    <Product name="Smartphone" productCode="2" description="Samsung Smartphone" retailPrice="12000.00" storePrice="10000.00" quantity="10"/>
-    <Product name="Tablet" productCode="3" description="Apple Tablet" retailPrice="18000.00" storePrice="15000.00" quantity="8"/>
-    <Product name="Smartwatch" productCode="4" description="Fitbit Smartwatch" retailPrice="5000.00" storePrice="4000.00" quantity="15"/>
-    <Product name="Headphones" productCode="5" description="Sony Headphones" retailPrice="3000.00" storePrice="2500.00" quantity="20"/>
-    <Product name="washing" productCode="5" description="Sony Headphones" retailPrice="3000.00" storePrice="2500.00" quantity="20"/>
+    <Product name="Laptop" productCode="25562" description="Lenovo Laptop" retailPrice="25000.00" storePrice="20000.00" quantity="5"/>
+    <Product name="Smartphone" productCode="12345" description="Samsung Smartphone" retailPrice="12000.00" storePrice="10000.00" quantity="10"/>
+    <Product name="Tablet" productCode="67890" description="Apple Tablet" retailPrice="18000.00" storePrice="15000.00" quantity="8"/>
+    <Product name="Smartwatch" productCode="54321" description="Fitbit Smartwatch" retailPrice="5000.00" storePrice="4000.00" quantity="15"/>
+    <!-- <Product name="Headphones" productCode="98765" description="Sony Headphones" retailPrice="3000.00" storePrice="2500.00" quantity="20"/> -->
 </Products>
