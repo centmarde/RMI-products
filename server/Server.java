@@ -15,7 +15,7 @@ public class Server{
 			System.out.println("Server has been started...");
 			//4 insert values
 			Product Laptop = new Product(321321,"Laptop","Lenovo", 10000.00, 100.00, 10);
-			Product MobilePhone = new Product(12223,"Mobile Phone","iPhone", 441.72,22,13);
+			Product MobilePhone = new Product(12223,"MobilePhone","iPhone", 441.72,22,13);
 			Product Charger = new Product(1233,"Charger","Lenovo Charger", 841.55,12.1,12);
 			Product powerBank = new Product(3232,"PowerBank","Panasonic", 44.12,120,15);
 			Product tablet = new Product(23123,"tablet", "asus", 440.12,45,6);

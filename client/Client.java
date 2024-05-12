@@ -41,14 +41,14 @@ public class Client {
                         break;
 
                     case 2:
-                    System.out.println("Available devices: Laptop, Mobile Phone, Charger, PowerBank, Tablet.");
+                    System.out.println("Available devices: Laptop, MobilePhone, Charger, PowerBank, Tablet.");
                     System.out.println("Limit items 2 only");
                     System.out.print("Enter the product name to add: ");
                     String productName = scanner.next();
                                                         //number 11 direa mahitabo ang pag add sa product gkan sa user
                     switch (productName.toLowerCase()) {
                         case "laptop":
-                        case "mobile phone":
+                        case "mobilephone":
                         case "charger":
                         case "powerbank":
                         case "tablet":
